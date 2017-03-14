@@ -158,8 +158,7 @@ function onConnected(cardHandle, protocol)
 
             // get the 2 last bytes
             sw = response.slice(-2);
-            //if (sw[0] == 0x90 && sw[1] == 0x00)
-            if (sw[0] == 0x6A && sw[1] == 0x82)
+            if (sw[0] == 0x90 && sw[1] == 0x00)
             {
                 APDU_COMMAND = [0x00, 0x00, 0x00, 0x00];
                 myLog('Sending ' + dump(APDU_COMMAND));
@@ -173,7 +172,7 @@ function onConnected(cardHandle, protocol)
 
                             // get the 2 last bytes
                             sw = response.slice(-2);
-                            //if (sw[0] == 0x90 && sw[1] == 0x00)
+                            if (sw[0] == 0x90 && sw[1] == 0x00)
                             {
                             }
                         }, onPcscLiteError);
