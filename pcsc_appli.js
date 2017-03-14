@@ -153,7 +153,7 @@ function onConnected(cardHandle, protocol)
       protocol == API.SCARD_PROTOCOL_T0 ?
           API.SCARD_PCI_T0 : API.SCARD_PCI_T1,
       APDU_SELECT).then(function(result) {
-        result.get(function (unknown, response) {
+        result.get(function (ioRecvPci, response) {
             myLog('response: ' + dump(response));
 
             // get the 2 last bytes
@@ -168,7 +168,7 @@ function onConnected(cardHandle, protocol)
                     protocol == API.SCARD_PROTOCOL_T0 ?
                     API.SCARD_PCI_T0 : API.SCARD_PCI_T1,
                     APDU_SELECT).then(function(result) {
-                        result.get(function(unknown, response) {
+                        result.get(function(ioRecvPci, response) {
                             myLog('response: ' + dump(response));
 
                             // get the 2 last bytes
