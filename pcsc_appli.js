@@ -167,7 +167,7 @@ function onConnected(cardHandle, protocol)
                     cardHandle,
                     protocol == API.SCARD_PROTOCOL_T0 ?
                     API.SCARD_PCI_T0 : API.SCARD_PCI_T1,
-                    APDU_SELECT).then(function(result) {
+                    APDU_COMMAND).then(function(result) {
                         result.get(function(ioRecvPci, response) {
                             myLog('response: ' + dump(response));
 
