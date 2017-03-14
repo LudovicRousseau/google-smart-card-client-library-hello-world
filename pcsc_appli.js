@@ -174,6 +174,13 @@ function onConnected(cardHandle, protocol)
                             sw = response.slice(-2);
                             if (sw[0] == 0x90 && sw[1] == 0x00)
                             {
+                                // convert to an ASCII string
+                                result = "";
+                                for (var i = 0; i < response.length; i++)
+                                {
+                                    result += String.fromCharCode(response[i]);
+                                }
+                                myLog('response: ' + result);
                             }
                         }, onPcscLiteError);
                     }, onRequestFailed);
